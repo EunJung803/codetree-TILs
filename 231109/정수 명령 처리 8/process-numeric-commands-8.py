@@ -25,7 +25,6 @@ class DoublyLinkedList:
             self.head = new_node      # head, tail을 새로 설정해줍니다.
             self.tail = new_node
             new_node.prev = None
-        
         self.node_num += 1
 
     def push_back(self, new_data):    # 원소를 맨 끝 위치에 넣어줍니다.
@@ -40,7 +39,6 @@ class DoublyLinkedList:
             self.head = new_node      # head, tail을 새로 설정해줍니다.
             self.tail = new_node
             new_node.next = None
-
         self.node_num += 1
 
     def pop_front(self):              # 첫 번째 수를 빼면서 동시에 그 수를 반환합니다.
@@ -55,7 +53,6 @@ class DoublyLinkedList:
             temp.next.prev = None     # 새로 head가 될 노드의 prev값을 지워줍니다.
             self.head = temp.next     # head값을 새로 갱신해주고
             temp.next = None          # 이전 head의 next 값을 지워줍니다.
-
             self.node_num -= 1
             return temp.data
   
@@ -71,7 +68,6 @@ class DoublyLinkedList:
             temp.prev.next = None     # 새로 tail이 될 노드의 next값을 지워줍니다.
             self.tail = temp.prev     # tail값을 새로 갱신해주고
             temp.prev = None          # 이전 tail의 prev 값을 지워줍니다.
-
             self.node_num -= 1
             return temp.data
 
@@ -79,7 +75,10 @@ class DoublyLinkedList:
         return self.node_num
 
     def empty(self):
-        return 1 if self.size == 0 else 0
+        if self.size:
+            return 0
+        else:
+            return 1
 
     def front(self):                  # 첫 번째 수를 반환합니다.
         return self.head.data
