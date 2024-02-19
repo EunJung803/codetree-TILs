@@ -23,8 +23,8 @@ visited[0][0] = 1
 ans[0][0] = num
 
 # 이동 방향
-dx_list = [1, 0, -1, 0]
-dy_list = [0, 1, 0, -1]
+dx_list = [1, 0, -1]
+dy_list = [0, 1, 0]
 
 while(q):
     x, y = q.popleft()
@@ -37,6 +37,7 @@ while(q):
             ans[new_x][new_y] = num
             q.append([new_x, new_y])
             visited[new_x][new_y] = 1
+            break
 
 # print(ans)
 
