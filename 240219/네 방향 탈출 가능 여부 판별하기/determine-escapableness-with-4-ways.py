@@ -5,11 +5,11 @@ matrix = [list(map(int, input().split())) for _ in range(n)]    # 2차원 배열
 
 # 0 == 뱀이 있음, 1 == 뱀이 없음
 
-visited = [[0 for _ in range(n)] for _ in range(n)]
-ans = [[0 for _ in range(n)] for _ in range(n)]
+visited = [[0 for _ in range(m)] for _ in range(n)]
+ans = [[0 for _ in range(m)] for _ in range(n)]
 
 def can_go(x, y):
-    if(x < 0 or x >= n or y < 0 or y >= n):
+    if(x < 0 or x >= n or y < 0 or y >= m):
         return False
     if(visited[x][y] == 1 or matrix[x][y] == 0):
         return False
@@ -23,8 +23,8 @@ visited[0][0] = 1
 ans[0][0] = num
 
 # 이동 방향
-dx_list = [1, 0, -1]
-dy_list = [0, 1, 0]
+dx_list = [-1, 0, 1, 0]
+dy_list = [0, -1, 0, 1]
 
 while(q):
     x, y = q.popleft()
@@ -37,12 +37,13 @@ while(q):
             ans[new_x][new_y] = num
             q.append([new_x, new_y])
             visited[new_x][new_y] = 1
-            break
 
+
+# print(visited)
 # print(ans)
 
 # 뱀에게 물리지 않고 탈출 가능한 경로가 있으면 1, 없으면 0을 출력
-if(ans[n-1][n-1] == 0):
+if(ans[n-1][m-1] == 0):
     print(0)
 else:
     print(1)
