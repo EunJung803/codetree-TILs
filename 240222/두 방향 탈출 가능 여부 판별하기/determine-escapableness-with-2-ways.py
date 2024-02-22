@@ -30,7 +30,7 @@ visited[0][0] = -1
 ans.append((0,0))
 dfs(0, 0)
 
-if(ans[-1] == (4, 4)):
+if(ans[-1] == (n-1, m-1)):
     print(1)
 else:
     print(0)
