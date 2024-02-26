@@ -8,6 +8,8 @@ visited = [list(0 for _ in range(m)) for _ in range(n)]
 k = 1
 max_k = k
 
+max_area = 0
+
 safe_area = []
 ans = []
 count_safe = []
@@ -41,7 +43,7 @@ def check_k(k):
                 k_map[i][j] = 1
     return k_map
 
-while(k >= 1):
+while(k <= 100):
     k_map = check_k(k)
 
     # 안전 영역 카운트
@@ -63,14 +65,23 @@ while(k >= 1):
         break
 
     if(count_safe):
-        if(count_safe[-1] > len(ans)):      # 지금 결과보다 더 컸던 안전 영역의 수가 존재한다면
-            k -= 1
-            break
+        if(max_area < max(count_safe)):
+            max_area = max(count_safe)
+        # if(count_safe[-1] > len(ans)):      # 지금 결과보다 더 컸던 안전 영역의 수가 존재한다면
+        #     k -= 1
+        #     break
+
+    # if (max_area > len(ans)):
+    #     k -= 1
+    #     break
 
     count_safe.append(len(ans))
     ans = []
+
     k += 1
 
 # print(count_safe)
 
-print(k, count_safe[-1])
+max_k = count_safe.index(max_area) + 1
+
+print(max_k, max_area)
