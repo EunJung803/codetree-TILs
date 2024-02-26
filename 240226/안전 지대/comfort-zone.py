@@ -1,3 +1,6 @@
+import sys
+sys.setrecursionlimit(2500)
+
 n, m = map(int, input().split())
 matrix = [list(map(int, input().split())) for _ in range(n)]
 
@@ -60,28 +63,16 @@ while(k <= 100):
 
     visited = [list(0 for _ in range(m)) for _ in range(n)]
 
-    if(len(ans) == 0 and len(count_safe) == 0):
-        count_safe.append(0)
-        break
-
-    if(count_safe):
-        if(max_area < max(count_safe)):
-            max_area = max(count_safe)
-        # if(count_safe[-1] > len(ans)):      # 지금 결과보다 더 컸던 안전 영역의 수가 존재한다면
-        #     k -= 1
-        #     break
-
-    # if (max_area > len(ans)):
-    #     k -= 1
-    #     break
-
     count_safe.append(len(ans))
     ans = []
+
+    if(count_safe):
+        if(max_area < max(count_safe)):     # 더 큰 안전 영역의 수가 존재한다면 -> 갱신
+            max_area = max(count_safe)
+            max_k = k
 
     k += 1
 
 # print(count_safe)
-
-max_k = count_safe.index(max_area) + 1
 
 print(max_k, max_area)
