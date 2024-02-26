@@ -126,14 +126,6 @@ while(k >= 1):
                 ans.append(safe_area)
                 safe_area = []
 
-            # if(max_k < count_safe[-1]):
-            #     max_k = count_safe[-1]
-            #
-            # k += 1
-            #
-            # if(count_safe[-1] < max_k):
-            #     break
-
     k += 1
     visited = [list(0 for _ in range(m)) for _ in range(n)]
 
@@ -152,4 +144,4 @@ while(k >= 1):
 
 # print(count_safe)
 
-print(max_k, count_safe[-1])
+print(len(count_safe), max_k)
