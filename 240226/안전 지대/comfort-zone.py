@@ -137,6 +137,10 @@ while(k >= 1):
     k += 1
     visited = [list(0 for _ in range(m)) for _ in range(n)]
 
+    if(len(ans) == 0 and len(count_safe) == 0):
+        count_safe.append(0)
+        break
+
     if(count_safe):
         if(max_k < count_safe[-1]):
             max_k = count_safe[-1]
@@ -148,4 +152,4 @@ while(k >= 1):
 
 # print(count_safe)
 
-print(count_safe[-1], max_k)
+print(max_k, count_safe[-1])
