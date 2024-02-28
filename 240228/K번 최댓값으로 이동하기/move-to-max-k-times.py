@@ -37,6 +37,7 @@ def bfs(q, n):
 
 # 초기 시작
 start_node = matrix[start_x-1][start_y-1]
+to_go = [start_x-1, start_y-1]
 visited[start_x-1][start_y-1] = 1
 q.append([start_x-1, start_y-1, start_node])
 bfs(q, start_node)
