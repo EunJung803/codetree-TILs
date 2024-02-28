@@ -49,11 +49,11 @@ for _ in range(k):
         # print(move_list)
 
         # 도달할 수 있는 칸들에 적혀있는 숫자 중 최댓값 찾아내기
-        max_n = 0
-        for j in range(len(move_list)):
-            node = move_list[j][2]
-            if(max_n < node):
-                max_n = node
+        max_n = move_list[-1][2]
+        # for j in range(len(move_list)):
+        #     node = move_list[j][2]
+        #     if(max_n < node):
+        #         max_n = node
 
         # 최댓값인 숫자들만 따로 담기
         move_list_max_n = []
