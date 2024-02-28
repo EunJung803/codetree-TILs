@@ -1,5 +1,5 @@
 from collections import deque
-from itertools import permutations
+from itertools import combinations
 
 n, k, m = map(int, input().split())
 matrix = [list(map(int, input().split())) for _ in range(n)]
@@ -15,7 +15,7 @@ for i in range(n):
         if(matrix[i][j] == 1):
             rock_list.append([i, j])
 
-pick_rock = list(permutations(rock_list, m))        # 돌이 있는 위치에서 제거할 m개의 돌을 뽑는 모든 조합 구해서 pick_rock 리스트에 담기
+pick_rock = list(combinations(rock_list, m))        # 돌이 있는 위치에서 제거할 m개의 돌을 뽑는 모든 조합 구해서 pick_rock 리스트에 담기
 # print(pick_rock)
 
 # 기존 matrix에 저장된 값을 복사해서 반환해주는 함수 (원본 matrix 배열을 변형시키지 않기 위함)
