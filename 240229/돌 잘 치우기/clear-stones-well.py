@@ -54,29 +54,30 @@ for r in range(len(pick_rock)):
         cp_matrix[remove_x][remove_y] = 0
 
     # BFS 수행
-    for p in range(len(start_point)):   # 각 시작점 모두 수행해봐야함
-        move = 1
-        visited = [list(0 for _ in range(n)) for _ in range(n)]
+    move = 0
+    visited = [list(0 for _ in range(n)) for _ in range(n)]
 
+    for p in range(len(start_point)):   # 각 시작점을 큐잉해서 탐색
+        move += 1
         point = start_point[p]
         q.append([point[0]-1, point[1]-1, move])
         visited[point[0]-1][point[1]-1] = 1
 
-        while (q):
-            curr = q.popleft()
-            x = curr[0]
-            y = curr[1]
+    while (q):
+        curr = q.popleft()
+        x = curr[0]
+        y = curr[1]
 
-            for i in range(4):
-                new_x = x + dx[i]
-                new_y = y + dy[i]
+        for i in range(4):
+            new_x = x + dx[i]
+            new_y = y + dy[i]
 
-                if (can_go(new_x, new_y, cp_matrix, visited)):
-                    move += 1
-                    visited[new_x][new_y] = 1
-                    q.append([new_x, new_y, move])
+            if (can_go(new_x, new_y, cp_matrix, visited)):
+                move += 1
+                visited[new_x][new_y] = 1
+                q.append([new_x, new_y, move])
 
-        ans.append(move)
+    ans.append(move)
 
 # print(ans)
 print(max(ans))
