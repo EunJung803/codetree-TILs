@@ -1,3 +1,6 @@
+import sys
+sys.setrecursionlimit(10000)
+
 n = int(input())
 matrix = [list(map(int, input().split())) for _ in range(n)]
 
