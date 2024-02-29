@@ -1,6 +1,3 @@
-import sys
-sys.setrecursionlimit(10000)
-
 n = int(input())
 matrix = [list(map(int, input().split())) for _ in range(n)]
 
@@ -33,6 +30,8 @@ def dfs(x, y, target):
 for a in range(n):
     for b in range(n):
         if(visited[a][b] == 0):
+            visited[a][b] = 1
+            block.append((a, b))
             dfs(a, b, matrix[a][b])
             ans.append(block)
         block = []
@@ -46,5 +45,4 @@ for i in range(len(ans)):
     if(len(ans[i]) > max_sq):
         max_sq = len(ans[i])
 
-# print(ans)
 print(block_cnt, max_sq)
