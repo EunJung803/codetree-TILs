@@ -93,6 +93,7 @@ while(len(outer_water) < N * M):
     for i in range(N):
         for j in range(M):
             melting = []
+            ice_visited = [list(0 for _ in range(M)) for _ in range(N)]
 
             if(matrix[i][j] == 1 and ice_visited[i][j] == 0):
                 ice_visited[i][j] = 1
