@@ -58,21 +58,6 @@ q.append((0, 0))
 
 bfs_outer_water(q)
 
-# print("outer water")
-# print(outer_water)
-# print("==")
-
-# 외부와 연결되어 있지 않은 물 찾기
-# cannot_melt_water = []
-#
-# for i in range(N):
-#     for j in range(M):
-#         if(matrix[i][j] == 0 and water_visited[i][j] == 0):
-#             if((i, j) not in outer_water):
-#                 cannot_melt_water.append((i, j))
-#
-# print(cannot_melt_water)
-
 # 외부와 맞닿은 물이 주변에 있는지 확인
 def check_water(x, y):
     for i in range(4):
@@ -111,15 +96,15 @@ def all_melt(m):
                 return False
     return True
 
-# 초기 얼음 찾기
-glaciers = []
-for i in range(1, N):
-    for j in range(1, M):
-        if(matrix[i][j] == 1):
-            glaciers.append((i, j))
-
 while not (all_melt(matrix)):
     ice_visited = [list(0 for _ in range(M)) for _ in range(N)]
+
+    # 얼음 찾기
+    glaciers = []
+    for i in range(1, N):
+        for j in range(1, M):
+            if (matrix[i][j] == 1):
+                glaciers.append((i, j))
 
     for g in range(len(glaciers)):
         melting = []
@@ -144,5 +129,6 @@ while not (all_melt(matrix)):
                     last_ice += 1
                 outer_water.add((ice[0], ice[1]))  # 녹았으니까 외부 물에 추가해주기
                 water_visited[ice[0]][ice[1]] = 1
+                ice_visited[ice[0]][ice[1]] = 0
 
 print(T, last_ice)
