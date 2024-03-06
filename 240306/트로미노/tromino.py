@@ -1,7 +1,7 @@
 from collections import deque
 
 n, m = map(int, input().split())
-matrix = [list(map(int, input().split())) for _ in range(m)]
+matrix = [list(map(int, input().split())) for _ in range(n)]
 
 def check_range(x, y):
     if(x < 0 or y < 0 or x >= n or y >= m):
