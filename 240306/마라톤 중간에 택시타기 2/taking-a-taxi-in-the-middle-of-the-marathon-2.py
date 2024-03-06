@@ -1,7 +1,7 @@
 N = int(input())
 check_points = [list(map(int, input().split())) for _ in range(N)]
 
-ans = 4000
+ans = []
 
 def get_total_dist(arr):
     total_dist = 0
@@ -23,7 +23,9 @@ for i in range(1, N-1):
 
     dist = get_total_dist(tmp)
 
-    if(ans >= dist):
-        ans = dist
+    # if(ans >= dist):
+    #     ans = dist
 
-print(ans)
+    ans.append(dist)
+
+print(min(ans))
