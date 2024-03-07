@@ -12,7 +12,7 @@ for i in range(N):
             sub_str.append(seq_A[j])
     if(sub_str):
         for j in range(M):
-            if(sub_str[j] not in seq_B):
+            if(sub_str[j] not in seq_B or seq_B[j] not in sub_str):
                 flag = False
                 break
         if(flag):
