@@ -1,5 +1,3 @@
-from itertools import permutations
-
 N, M = map(int, input().split())
 seq_A = list(map(int, input().split()))
 seq_B = list(map(int, input().split()))
