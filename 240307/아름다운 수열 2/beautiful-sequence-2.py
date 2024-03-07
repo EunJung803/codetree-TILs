@@ -1,3 +1,5 @@
+from itertools import permutations
+
 N, M = map(int, input().split())
 seq_A = list(map(int, input().split()))
 seq_B = list(map(int, input().split()))
@@ -11,11 +13,7 @@ for i in range(N):
         if(i+M <= N):
             sub_str.append(seq_A[j])
     if(sub_str):
-        for j in range(M):
-            if(sub_str[j] not in seq_B or seq_B[j] not in sub_str):
-                flag = False
-                break
-        if(flag):
+        if(sorted(sub_str) == sorted(seq_B)):
             cnt += 1
 
 print(cnt)
