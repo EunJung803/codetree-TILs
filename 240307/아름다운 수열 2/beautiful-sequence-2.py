@@ -1,12 +1,15 @@
-from itertools import permutations
-
-def make_b_case(B):
-    b = list(set(list(permutations(B,len(B)))))
-    #b_case = []
-    #for i in range(len(B)):
-        #b_case.append(B[i:]+B[:i])
-    #return b_case
-    return b
+from collections import deque
+def make_b_case(q):
+    if len(q)==len(B):
+        b_case.append(list(q))
+        return
+    for i,v in enumerate(B):
+        if visited[i]==False:
+            q.append(v)
+            visited[i]=True
+            make_b_case(q)
+            visited[i]=False
+            q.pop()
 
 def beautiful_num(A,B):
     num = 0
@@ -18,9 +21,12 @@ def beautiful_num(A,B):
 N,M = map(int,input().split())
 A = list(map(int,input().split()))
 B = list(map(int,input().split()))
+visited = [False for _ in range(len(B))]
+b_case = []
 
 answer = 0
-b_case = make_b_case(B)
+q = deque()
+make_b_case(q)
 for i in range(len(b_case)):
     answer += beautiful_num(A,b_case[i])
 print(answer)
