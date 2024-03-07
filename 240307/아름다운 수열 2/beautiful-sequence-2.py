@@ -1,7 +1,8 @@
 from collections import deque
 def make_b_case(q):
     if len(q)==len(B):
-        b_case.append(list(q))
+        if list(q) not in b_case:
+            b_case.append(list(q))
         return
     for i,v in enumerate(B):
         if visited[i]==False:
@@ -27,6 +28,7 @@ b_case = []
 answer = 0
 q = deque()
 make_b_case(q)
+print(b_case)
 for i in range(len(b_case)):
     answer += beautiful_num(A,b_case[i])
 print(answer)
