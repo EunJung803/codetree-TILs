@@ -58,8 +58,7 @@ def bfs(q, sub_matrix, visited):
 
             if(can_go(nx, ny, sub_matrix, visited)):
                 visited[nx][ny] = 1
-                cnt += 1
-                q.append((nx, ny, cnt))
+                q.append((nx, ny, cnt+1))
 
     return move_list
 
