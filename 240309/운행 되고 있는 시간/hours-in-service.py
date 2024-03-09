@@ -1,9 +1,12 @@
 N = int(input())
 work_hour = [list(map(int, input().split())) for _ in range(N)]
 
-work_time_list = []
-for i in range(len(work_hour)):
-    work_time_list.append(abs(work_hour[i][1] - work_hour[i][0]))
+# [ A B ) 에 일하게 됨
+
+# 1 2 3 4 5 6 7 8 9
+# [     ]
+#     [       ]
+#         [        ]
 
 length = 0
 for i in range(len(work_hour)):
@@ -24,15 +27,13 @@ for i in range(N):
 
     check_time = [False for _ in range(length)]
     for i in range(len(check)):
-        for j in range(check[i][0]-1, check[i][1]):
+        for j in range(check[i][0]-1, check[i][1]-1):
             check_time[j] = True
+
+        # print(check_time)
 
     cnt = check_time.count(True)
     if(max_cnt < cnt):
         max_cnt = cnt
 
-ans = 0
-for i in range(len(idx)):
-    ans += work_time_list[idx[i]]
-
-print(ans)
+print(max_cnt)
