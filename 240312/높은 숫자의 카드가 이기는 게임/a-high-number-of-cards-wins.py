@@ -9,8 +9,7 @@ flag = 0
 for i in range(2*N):
     if cards[i] == B:
         flag += 1
-    else:
-        if flag > 0:
-            answer += 1
-            flag -= 1
+    if cards[i] == A and flag > 0:
+        answer += 1
+        flag -= 1
 print(answer)
