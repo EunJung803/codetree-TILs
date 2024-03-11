@@ -14,6 +14,8 @@ def bfs(i,j,size):
     q.append((i,j))
     while q:
         x,y = q.popleft()
+        if isVisited[x][y]>size:
+            break
         if isVisited[x][y]<=size and grid[x][y] == 1:
             earn += 1
         for d in range(4):
