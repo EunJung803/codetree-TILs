@@ -30,7 +30,7 @@ answer = 0
 
 for x in range(N):
     for y in range(N):
-        for size in range(N):
+        for size in range(N+1):
             cost,num = bfs(x,y,size)
             if num*M - cost >= 0:
                 answer = max(answer,num)
