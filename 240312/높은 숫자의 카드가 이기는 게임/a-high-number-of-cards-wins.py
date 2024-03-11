@@ -5,12 +5,12 @@ isFinish = [False for _ in range(2*N)]
 answer = 0
 for i in range(N):
     cards[int(input())-1] = B
-flag = False
+flag = 0
 for i in range(2*N):
     if cards[i] == B:
-        flag = True
+        flag += 1
     else:
-        if flag==True:
+        if flag > 0:
             answer += 1
-        flag = False
+            flag -= 1
 print(answer)
