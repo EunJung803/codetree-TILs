@@ -16,15 +16,9 @@ def get_gold(arr):
             cnt_gold += 1
     return cnt_gold
 
-dx = [1, -1, 0, 0]
-dy = [0, 0, 1, -1]
-
-k = 0
-ans = []
-
-q = deque()
-
 def bfs(q, visited, curr_k):
+    dx = [1, -1, 0, 0]
+    dy = [0, 0, 1, -1]
     while (q):
         curr = q.popleft()
         x = curr[0]
@@ -40,11 +34,19 @@ def bfs(q, visited, curr_k):
                 bfs_list.append((nx, ny, k+1))
     return bfs_list
 
+## main
+k = 0
+ans = []
+bfs_list = []
+
+q = deque()
+
 curr_k = 0
 max_gold = 0
+
 for i in range(n):
     for j in range(n):
-        for kk in range(n):
+        for kk in range(n+1):
             curr_k = kk
 
             visited = [list(0 for _ in range(n)) for _ in range(n)]
@@ -64,4 +66,7 @@ for i in range(n):
             if (cost < earn):
                 ans.append(get_gold(bfs_list))
 
-print(max(ans))
+if(ans):
+    print(max(ans))
+else:
+    print(get_gold(bfs_list))
