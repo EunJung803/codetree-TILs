@@ -12,7 +12,6 @@ ans = 0
 for i in range(N):
     for j in range(i, N):
         sub_str = str_input[i:j+1]
-        print(str_input[i:j])
 
         if(sub_str not in checked):
             checked.add(sub_str)
