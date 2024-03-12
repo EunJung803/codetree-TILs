@@ -26,7 +26,7 @@ for i in range(len(sick)):
         spoiled = new
 
 have_to_eat = [0 for i in range(N+1)]
-for i in range(len(spoiled)):
+for i in spoiled:
     for j in range(N+1):
         if info[i][j] != -1:
             have_to_eat[j] = 1
