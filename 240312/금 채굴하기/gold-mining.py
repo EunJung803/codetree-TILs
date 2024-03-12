@@ -36,13 +36,14 @@ def bfs(q, visited, curr_k):
 
 ## main
 k = 0
-ans = []
+# ans = []
 bfs_list = []
 
 q = deque()
 
 curr_k = 0
 max_gold = 0
+answer = 0
 
 for i in range(n):
     for j in range(n):
@@ -61,12 +62,14 @@ for i in range(n):
             bfs_list = bfs(q, visited, curr_k)
 
             cost = (curr_k * curr_k + (curr_k + 1) * (curr_k + 1))
-            earn = get_gold(bfs_list) * m
+            earn = get_gold(bfs_list)
 
-            if (cost < earn):
-                ans.append(get_gold(bfs_list))
+            if (cost <= earn * m):
+                answer = max(answer, earn)
 
-if(ans):
-    print(max(ans))
-else:
-    print(get_gold(bfs_list))
+# if(ans):
+#     print(max(ans))
+# else:
+#     print(get_gold(bfs_list))
+
+print(answer)
