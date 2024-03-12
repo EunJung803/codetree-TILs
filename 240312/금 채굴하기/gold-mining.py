@@ -37,28 +37,31 @@ def bfs(q, visited, curr_k):
             if (check_range(nx, ny) and visited[nx][ny] == 0 and k+1 <= curr_k):
                 q.append((nx, ny, k+1))
                 visited[nx][ny] = 1
-                m.append((nx, ny, k+1))
-    return m
+                bfs_list.append((nx, ny, k+1))
+    return bfs_list
 
 curr_k = 0
 max_gold = 0
 for i in range(n):
     for j in range(n):
-        for kk in range(n // 2 + 1):
+        for kk in range(n):
             curr_k = kk
 
             visited = [list(0 for _ in range(n)) for _ in range(n)]
             center = (i, j, k)
             visited[i][j] = 1
 
-            m = []
-            m.append(center)
+            bfs_list = []
+            bfs_list.append(center)
 
             q.append(center)
 
-            m = bfs(q, visited, curr_k)
-            
-            if (len(m) == curr_k * curr_k + (curr_k + 1) * (curr_k + 1)):
-                ans.append(get_gold(m))
+            bfs_list = bfs(q, visited, curr_k)
+
+            cost = (curr_k * curr_k + (curr_k + 1) * (curr_k + 1))
+            earn = get_gold(bfs_list) * m
+
+            if (cost < earn):
+                ans.append(get_gold(bfs_list))
 
 print(max(ans))
