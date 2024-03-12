@@ -18,12 +18,12 @@ for i in range(S):
     t = sick_list[i][1]
 
     for j in range(D):
-        if(cheese_list[j][0] == sick_person and cheese_list[j][2] < t and check_human[sick_person-1] == False):
+        if(cheese_list[j][0] == sick_person and cheese_list[j][2] < t):
             med += 1
             check_human[sick_person-1] = True
 
-            med = find_other(cheese_list[j][1], med, check_human)
+            med = find_other(cheese_list[j][1], med, check_human)       # 추가로 아플 가능성이 있는 사람을 찾아내기
         if(med == N):
             break
 
-print(med)
+print(check_human.count(True))
