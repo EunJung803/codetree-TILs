@@ -18,7 +18,7 @@ for i in range(S):
     t = sick_list[i][1]
 
     for j in range(D):
-        if(cheese_list[j][0] == sick_person and cheese_list[j][2] <= t and check_human[sick_person-1] == False):
+        if(cheese_list[j][0] == sick_person and cheese_list[j][2] < t and check_human[sick_person-1] == False):
             med += 1
             check_human[sick_person-1] = True
 
