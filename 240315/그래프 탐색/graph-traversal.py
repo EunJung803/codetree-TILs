@@ -15,7 +15,7 @@ for _ in range(M):
     grid_list[s].append(e)
     grid_list[e].append(s)
 
-visited = [False for _ in range(N)]
+visited = [False for _ in range(N+1)]
 visited[1] = True
 cnt = 0
 dfs(1)
