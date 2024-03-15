@@ -1,3 +1,5 @@
+import sys
+sys.setrecursionlimit(2500)
 def in_range(x,y):
     if 0<=x<n and 0<=y<m:
         return True
@@ -20,7 +22,7 @@ def dfs(x,y,k):
 def getIsland(k):
     global visited
     num = 0
-    visited = [[False for x in range(m)] for j in range(n)]
+    visited = [[False for x in range(m)] for y in range(n)]
     for x in range(n):
         for y in range(m):
             if visited[x][y]==False and grid[x][y]>k:
