@@ -23,7 +23,7 @@ def dfs(x,y):
 n,m = map(int,input().split())
 grid = [list(map(int,input().split())) for _ in range(n)]
 
-visited = [[False for i in range(n)] for j in range(n)]
+visited = [[False for i in range(m)] for j in range(n)]
 visited[0][0] = 1
 dfs(0,0)
 if visited[n-1][m-1] == True:
