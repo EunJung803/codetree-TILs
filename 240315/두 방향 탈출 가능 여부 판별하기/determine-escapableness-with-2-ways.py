@@ -6,7 +6,7 @@ def in_range(x,y):
 def canGo(x,y):
     if not in_range(x,y):
         return False
-    if grid[x][y]==1:
+    if grid[x][y]==0:
         return False
     if visited[x][y]:
         return False
