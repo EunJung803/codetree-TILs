@@ -37,7 +37,7 @@ for i in range(n):
     maxK = max(maxK,max(grid[i]))
 
 visited = [[False for x in range(m)] for j in range(n)]
-answeridx,answer = 0,0
+answeridx,answer = 1,0
 for i in range(1,maxK):
     cnt = getIsland(i)
     if cnt > answer:
