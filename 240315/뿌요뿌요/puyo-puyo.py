@@ -22,7 +22,7 @@ def dfs(v,x,y):
 
 n = int(input())
 grid = [list(map(int,input().split())) for _ in range(n)]
-isVisited = [False for _ in range(101)]
+#isVisited = [False for _ in range(101)]
 visitedPlace = [[False for i in range(n)] for j in range(n)]
 eraseNum,maxSize = 0,0
 cnt = 0
@@ -30,10 +30,9 @@ cnt = 0
 for i in range(n):
     for j in range(n):
         value = grid[i][j]
-        if isVisited[value]==False:
+        if visitedPlace[i][j]==False:
             cnt = 1
             visitedPlace[i][j]=True
-            isVisited[value]=True
             dfs(value,i,j)
             maxSize = max(maxSize,cnt)
             if cnt >= 4:
