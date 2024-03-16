@@ -1,5 +1,7 @@
 def stair(n):
-    if n<=3:
+    if n<=1:
+        return 0
+    if n==2 or n==3:
         return 1
     if n not in memo:
         memo[n] = stair(n-2)+stair(n-3)
