@@ -34,6 +34,6 @@ for _ in range(k):
     q = deque()
     r,c = map(int,input().split())
     if cango(r,c):
-        push(r,c)
+        push(r-1,c-1)
         bfs()
 print(cnt)
