@@ -37,7 +37,8 @@ for _ in range(k):
     q = deque()
     visited = [[False for i in range(n)] for j in range(n)]
     push(r,c)
-    v,r,c = bfs()
+    v,nr,nc = bfs()
     if v==0:
         break
+    r,c = nr,nc
 print(r+1,c+1)
