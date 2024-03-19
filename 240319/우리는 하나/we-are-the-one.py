@@ -1,4 +1,5 @@
 from collections import deque
+from itertools import combinations
 
 # (0,0) ~ (n-1,n-1) 중 k개 조합 구하기
 # -> n*n개 중 k개 고르기
@@ -47,9 +48,11 @@ n,k,u,d = map(int,input().split())
 grid = [list(map(int,input().split())) for _ in range(n)]
 answer = 0
 
-q = deque()
-get_comb(q,0)
+#q = deque()
+#get_comb(q,0)
 
+idxlist = [i for i in range(0,n*n)]
+comb = list(combinations(idxlist,k))
 q = deque()
 for c in comb:
     visited = [[False for i in range(n)] for j in range(n)]
