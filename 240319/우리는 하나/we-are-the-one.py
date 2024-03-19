@@ -55,7 +55,7 @@ for c in comb:
     visited = [[False for i in range(n)] for j in range(n)]
     for city in c:
         x,y = city//n,city%n
-        visited[x][y]
+        visited[x][y]=True
         q.append((x,y))
     bfs()
     answer = max(answer,get_citynum())
