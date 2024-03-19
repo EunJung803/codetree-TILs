@@ -38,7 +38,7 @@ def getdp(x,y):
 
     return dp[x][y]
 
-initialize()
+#initialize()
 for i in range(n):
     for j in range(n):
         getdp(i,j)
