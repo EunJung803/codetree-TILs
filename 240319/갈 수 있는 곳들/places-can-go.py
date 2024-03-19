@@ -33,7 +33,7 @@ cnt = 0
 for _ in range(k):
     q = deque()
     r,c = map(int,input().split())
-    if cango(r,c):
+    if cango(r-1,c-1):
         push(r-1,c-1)
         bfs()
 print(cnt)
